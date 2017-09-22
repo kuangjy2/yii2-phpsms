@@ -1,2 +1,2 @@
-# yii2-phpcms
+# yii2-phpsms
 toplan/phpsms for yii2
