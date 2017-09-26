@@ -1,0 +1,22 @@
+{
+    "name": "kuangjy/yii2-phpsms",
+    "description": "toplan/phpsms for yii2",
+    "type": "library",
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "toplan/phpsms": "^1.8"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kuangjy2",
+            "email": "kuangjy@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Kuangjy\\PhpSms\\": "src/"
+        }
+    }
+}
