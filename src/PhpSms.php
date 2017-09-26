@@ -8,9 +8,9 @@
 
 namespace Kuangjy\PhpSms;
 
+use Toplan\PhpSms\Sms;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
-use Toplan\PhpSms\Sms;
 
 class PhpSms extends Component
 {
@@ -52,7 +52,7 @@ class PhpSms extends Component
 
     public static function __callStatic($name, $arguments)
     {
-        forward_static_call_array(['\Toplan\PhpSms\Sms', $name], $arguments);
+        return forward_static_call_array(['Toplan\PhpSms\Sms', $name], $arguments);
     }
 
 }
