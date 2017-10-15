@@ -12,10 +12,46 @@ use Toplan\PhpSms\Sms;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
+
+/**
+ * Class PhpSms
+ * @package Kuangjy\PhpSms
+ *
+ * @method static scheme($name = null, $scheme = null, $override = false)
+ * @method static config($name = null, $config = null, $override = false)
+ * @method static beforeSend($handler = null, $override = false)
+ * @method static beforeAgentSend($handler = null, $override = false)
+ * @method static afterAgentSend($handler = null, $override = false)
+ * @method static afterSend($handler = null, $override = false)
+ * @method static queue($enable = null, $handler = null)
+ *
+ */
 class PhpSms extends Component
 {
+    /**
+     * @var array
+     */
     public $config = [];
+    /**
+     * @var array
+     */
     public $scheme = [];
+    /**
+     * @var \Closure|null
+     */
+    public $beforeSend = null;
+    /**
+     * @var \Closure|null
+     */
+    public $beforeAgentSend = null;
+    /**
+     * @var \Closure|null
+     */
+    public $afterAgentSend = null;
+    /**
+     * @var \Closure|null
+     */
+    public $afterSend = null;
 
     public function init()
     {
@@ -25,6 +61,18 @@ class PhpSms extends Component
         }
         Sms::config($this->config);
         Sms::scheme($this->scheme);
+        if ($this->beforeSend != null) {
+            Sms::beforeSend($this->beforeAgentSend);
+        }
+        if ($this->beforeAgentSend != null) {
+            Sms::beforeAgentSend($this->beforeAgentSend);
+        }
+        if ($this->afterAgentSend != null) {
+            Sms::afterAgentSend($this->afterAgentSend);
+        }
+        if ($this->afterSend != null) {
+            Sms::afterSend($this->afterSend);
+        }
     }
 
     /**
