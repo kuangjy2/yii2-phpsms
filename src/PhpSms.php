@@ -6,7 +6,7 @@
  * Time: 15:38
  */
 
-namespace Kuangjy\PhpSms;
+namespace kuangjy\PhpSms;
 
 use Toplan\PhpSms\Sms;
 use yii\base\Component;

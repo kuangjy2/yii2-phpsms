@@ -16,7 +16,11 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Kuangjy\\PhpSms\\": "src/"
+            "kuangjy\\PhpSms\\": "src/",
+            "kuangjy\\PhpSms\\Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.0"
     }
 }
