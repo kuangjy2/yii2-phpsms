@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: kuang
- * Date: 2017/9/26
- * Time: 15:38
- */
 
 namespace kuangjy\PhpSms;
 
@@ -15,7 +9,7 @@ use yii\base\InvalidConfigException;
 
 /**
  * Class PhpSms
- * @package Kuangjy\PhpSms
+ * @package kuangjy\PhpSms
  *
  * @method static scheme($name = null, $scheme = null, $override = false)
  * @method static config($name = null, $config = null, $override = false)
@@ -37,22 +31,26 @@ class PhpSms extends Component
      */
     public $scheme = [];
     /**
-     * @var \Closure|null
+     * @var \Closure
      */
     public $beforeSend = null;
     /**
-     * @var \Closure|null
+     * @var \Closure
      */
     public $beforeAgentSend = null;
     /**
-     * @var \Closure|null
+     * @var \Closure
      */
     public $afterAgentSend = null;
     /**
-     * @var \Closure|null
+     * @var \Closure
      */
     public $afterSend = null;
 
+    /**
+     * @throws InvalidConfigException
+     * @throws \Toplan\PhpSms\PhpSmsException
+     */
     public function init()
     {
         parent::init();
@@ -76,21 +74,20 @@ class PhpSms extends Component
     }
 
     /**
-     * @param mixed|null $var1
-     * @param string||null $var2
+     * @param mixed $var1
+     * @param string $var2
      * @return \Toplan\PhpSms\Sms
      */
     public function createSms($var1 = null, $var2 = null)
     {
-        if ($var1 || $var2) {
+        if ($var1 != null || $var2 != null) {
             return Sms::make($var1, $var2);
-        } else {
-            return Sms::make();
         }
+        return Sms::make();
     }
 
     /**
-     * @param string|null $code
+     * @param string $code
      * @return \Toplan\PhpSms\Sms
      */
     public function createVoice($code = null)
