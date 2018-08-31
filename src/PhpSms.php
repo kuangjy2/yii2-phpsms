@@ -62,7 +62,7 @@ class PhpSms extends Component
         Sms::config($this->config);
         Sms::scheme($this->scheme);
         if ($this->beforeSend != null) {
-            Sms::beforeSend($this->beforeAgentSend);
+            Sms::beforeSend($this->beforeSend);
         }
         if ($this->beforeAgentSend != null) {
             Sms::beforeAgentSend($this->beforeAgentSend);
